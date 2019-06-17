@@ -1,11 +1,14 @@
 [[source]]
 name = "pypi"
-url = "http://mirrors.aliyun.com/pypi/simple"
-verify_ssl = true
+url = "http://mirrors.aliyun.com/pypi/simple/"
+verify_ssl = false
 
 [dev-packages]
 
 [packages]
+flask = "*"
+flask-login = "*"
+flask-sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
