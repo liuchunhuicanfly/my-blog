@@ -94,8 +94,11 @@ def page_not_found(e): # 接受异常对象作为参数
 # 定义路由及视图函数
 @app.route('/')
 def index():
-	movies = Movie.query.all()
-	return render_template('blog/index.html', movies = movies)
+	return render_template('blog/index.html', active_page = 'home')
+
+@app.route('/about')
+def about():
+	return render_template('blog/about.html', active_page = 'about')
 
 
 
