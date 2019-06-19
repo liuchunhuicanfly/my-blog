@@ -77,12 +77,29 @@ def forge():
 	# 输出提示信息
 	click.echo('Done')
 
+# 定义上下文参数
+@app.context_processor
+def inject_user():
+	user = User.query.first()
+	# 函数返回的变量（以字典键值对的形式）将会统一注入到每一个模板的上下文环境中，因此可以直接在模板中使用
+	return dict(user = user)
+
+# 404错误处理
+# 传入要处理的错误代码
+@app.errorhandler(404)
+def page_not_found(e): # 接受异常对象作为参数
+	print(type(e)) # class 'werkzeug.exceptions.NotFound'>
+	return render_template('errors/404.html'), 404
+
 # 定义路由及视图函数
 @app.route('/')
 def index():
-	user = User.query.first()
 	movies = Movie.query.all()
-	return render_template('index.html', user = user, movies = movies)
+	return render_template('index.html', movies = movies)
+
+
+
+
 
 
 
