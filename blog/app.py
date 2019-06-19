@@ -95,7 +95,7 @@ def page_not_found(e): # 接受异常对象作为参数
 @app.route('/')
 def index():
 	movies = Movie.query.all()
-	return render_template('index.html', movies = movies)
+	return render_template('blog/index.html', movies = movies)
 
 
 

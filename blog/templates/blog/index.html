@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<h1>hello, my-blog</h1>
-</body>
-</html>
+<!-- 继承基模板 -->
+{% extends 'base.html' %}
+
+
+{% block title %}Home{% endblock%}
+
+{% block content %}
+	this is home's content
+{% endblock %}
+

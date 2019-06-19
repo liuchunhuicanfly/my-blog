@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+	{% block head %}
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} - Richard's Blog</title>
+		<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-4.0/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+	{% endblock head %}
 </head>
 <body>
-	
+
+	{% block nav %}
+	{% endblock nav %}
+
+	<main class="container">
+		{% block content %}{% endblock content%}
+	</main>
+
+	{% block footer %}
+	{% endblock %}
+
+	{% block scripts %}
+		<script type="text/javascript" src="{{url_for('static', filename='jquery-3.2.1/jquery.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='popper-1.12.9/popper.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='bootstrap-4.0/js/bootstrap.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='js/main.js')}}"></script>
+	{% endblock scripts %}
 </body>
-</html>pop
+</html>
