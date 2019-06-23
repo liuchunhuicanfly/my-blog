@@ -1,0 +1,19 @@
+<!-- 继承基模板 -->
+{% extends 'base.html' %}
+
+
+{% block title %}Login{% endblock%}
+
+
+{% block content %}
+<form method="post" style="margin-top: 100px">  <!-- 指定提交方法为 POST -->
+  <label for="username">用户名</label>
+  <input type="text" name="username" id="name"><br>  <!-- 文本输入框 -->
+  <label for="password">密码</label>
+  <input type="text" name="password" id="occupation"><br>  <!-- 文本输入框 -->
+  <input type="submit" name="submit" value="登录">  <!-- 提交按钮 -->
+</form>
+{% endblock content %}
+
+
+{% block footer %}{% endblock %}

@@ -5,74 +5,38 @@
 {% block title %}Home{% endblock%}
 
 {% block content %}
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
-	<h1>this is home's content</h1>
+
+	<ul>
+		{% for movie in movies %}
+		<li>
+			{{ movie.title }} - {{ movie.year }}
+
+			{% if current_user.is_authenticated %}
+			<span>
+			    <a class="btn" href="{{ url_for('movie_edit', movie_id=movie.id) }}">Edit</a> |
+			    <form class="inline-form" method="post" action="{{ url_for('movie_delete', movie_id=movie.id) }}">
+	        	<input class="btn" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure?')">
+	    </form>
+			</span>
+			{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+
+	<p>{{ movies|length }} Titles</p>
+
+	{% if current_user.is_authenticated %}
+	<form method="post">
+	    Name <input type="text" name="title" autocomplete="off" required="off">
+	    Year <input type="text" name="year" autocomplete="off" required="off">
+	    <input class="btn" type="submit" name="submit" value="Add" formnovalidate>
+	</form>
+	{% endif %}
+	{% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+	{% endfor %}
+
+
 	
 {% endblock %}
 
