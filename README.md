@@ -54,4 +54,22 @@ def hello():
     return 'hello flask'
 ```
 
->**参考**：[《hello, flask》](https://read.helloflask.com/)
+### Installation
+```
+$ git clone https://github.com/liuchunhuicanfly/my-blog
+$ cd my-blog
+$ pipenv install --dev
+$ pipenv shell
+$ flask forge
+$ flask run
+* Running on http://127.0.0.1:5000/
+
+# 账号密码
+richard
+123456
+```
+
+
+>**参考**：
+[watchList](https://github.com/greyli/watchlist)
+[hello, flask](https://read.helloflask.com/)
