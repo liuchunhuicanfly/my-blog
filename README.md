@@ -60,13 +60,20 @@ $ git clone https://github.com/liuchunhuicanfly/my-blog
 $ cd my-blog
 $ pipenv install --dev
 $ pipenv shell
+$ flask initsb -- drop
 $ flask forge
+$ flask admin
+    - input your username
+    - input your password
 $ flask run
 * Running on http://127.0.0.1:5000/
+```
 
-# 账号密码
-richard
-123456
+### Test
+```
+$ pipenv shell
+$ cd my-blog
+$ python3 test-blog.py
 ```
 
 

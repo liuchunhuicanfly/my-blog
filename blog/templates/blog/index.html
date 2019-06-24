@@ -6,6 +6,8 @@
 
 {% block content %}
 
+	<h1> {{current_user.name}} Watch List </h1>
+
 	<ul>
 		{% for movie in movies %}
 		<li>
@@ -32,11 +34,6 @@
 	    <input class="btn" type="submit" name="submit" value="Add" formnovalidate>
 	</form>
 	{% endif %}
-	{% for message in get_flashed_messages() %}
-    <div class="alert">{{ message }}</div>
-	{% endfor %}
-
-
 	
 {% endblock %}
 
