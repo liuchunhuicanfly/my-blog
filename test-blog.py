@@ -2,7 +2,9 @@
 
 import unittest
 
-from app import app, db, Movie, User, forge, initdb
+from blog import app, db
+from blog.models import User, Movie
+from blog.commands import forge, initdb
 
 class BlogTestCase(unittest.TestCase):
 
